@@ -223,13 +223,20 @@
         <script type="text/template">
             ## Multi-threaded code
 
-            Many programs allow you to specify `cores`, `threads`, or `cpus`. For example:
+            Many programs allow you to specify cores, threads, or CPUs. For example:
 
             <br/>
-            `blastn -num_threads 4`
+            BLAST:
 
-            <br/>
-            `Trinity.pl --seqType fq --JM 10G --single blah.fastq --output blah.out --CPU 4 --inchworm_cpu 4 --bflyCPU 4`
+            ```
+            blastn -num_threads 4
+            ```
+
+            Trinity:
+
+            ```
+            Trinity.pl [..] --output blah.out --CPU 4 --inchworm_cpu 4 --bflyCPU 4
+            ```
 
             <br/>
             Make sure to match your program's thread/core/cpu parameter with the SLURM job parameters!
