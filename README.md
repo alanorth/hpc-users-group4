@@ -4,7 +4,7 @@ This is a presentation I gave at the 4th HPC Users Group meeting at ILRI, Kenya.
 It's an informal group I created to encourage good practices amongst the users
 of ILRI's research computing platform.
 
-You can view the presentation on GitHub Pages [here](http://alanorth.github.io/hpc-users-group4).
+You can view the presentation on GitHub Pages [here](https://alanorth.github.io/hpc-users-group4).
 
 ## LICENSE
 
