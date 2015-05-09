@@ -26,7 +26,7 @@ After hacking on the slides in the `source/` directory, build the presentation a
 
 The presentation will be available at [http://localhost:8000](http://localhost:8000).
 
-### LICENSE
+### License
 This repository contains the code of [reveal.js](https://github.com/hakimel/reveal.js) which is licensed under the [MIT license](https://github.com/hakimel/reveal.js/blob/master/LICENSE).
 
 Otherwise, the contents of `source/` are [Unlicensed](http://unlicense.org/UNLICENSE).
