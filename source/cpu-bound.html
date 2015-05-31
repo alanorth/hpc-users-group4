@@ -8,27 +8,26 @@
     </section>
     <section data-markdown>
         <script type="text/template">
-            ## Programs which are generally CPU bound
+            ### Programs which are generally CPU bound
 
-            <img src="img/thinker.jpg" style="width: 320px; border: none; background: none; box-shadow: none;">
+            <img src="img/thinker.jpg" style="width: 300px; border: none; background: none; box-shadow: none;">
 
             R, structure, ???
         </script>
     </section>
     <section data-markdown>
         <script type="text/template">
-            ## Things you can do to speed up a CPU-bound program
+            ### Things you can do to speed up a CPU-bound program
 
             <img src="img/rocket-turtle.jpg" style="width: 800px; border: none; background: none; box-shadow: none;">
 
-            Get a faster CPU (ie, 2.4GHz -> 2.8GHz)
-
-            Spread the problem over multiple CPUs ("multi-threaded" code)
+            - Get a faster CPU (ie, 2.4GHz -> 2.8GHz)
+            - Spread the problem over multiple CPUs ("multi-threaded" code)
         </script>
     </section>
     <section data-markdown>
         <script type="text/template">
-            ## Multi-threaded code
+            ### Multi-threaded code
 
             Many programs allow you to specify cores, threads, or CPUs. For example:
 
@@ -45,7 +44,6 @@
             Trinity.pl [..] --output blah.out --CPU 4 --inchworm_cpu 4 --bflyCPU 4
             ```
 
-            <br/>
             Make sure to match your program's thread/core/cpu parameter with the SLURM job parameters!
         </script>
     </section>

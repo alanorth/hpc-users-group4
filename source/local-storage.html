@@ -9,20 +9,18 @@
     </section>
     <section data-markdown>
         <script type="text/template">
-            ## Using local storage in batch jobs
-
+            ### Using local storage in batch jobs
             taurus and mammoth have a local "scratch" space we can use:
 
-            <br/>
             */var/scratch*
 
-            <br/>
+            <br />
             Scratch space is a local, temporary place to put your data where you don't incur penalties for going over the network
         </script>
     </section>
     <section data-markdown>
         <script type="text/template">
-            ## Example batch script
+            ### Example batch script
 
             ```
 #!/bin/env bash
@@ -43,14 +41,12 @@ echo
 blastn -query ~/data/sequences/drosoph_14_sequences.seq -db nt -num_threads 4 -out $WORKDIR/output
             ```
 
-            <br/>
             Creates a unique temp directory for you during runtime, ie:
 
             ```
             /var/scratch/10287
             ```
 
-            <br/>
             Make sure to clean up when you're done!
         </script>
     </section>
