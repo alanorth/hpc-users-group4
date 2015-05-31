@@ -12,17 +12,21 @@
 		<meta name="apple-mobile-web-app-capable" content="yes" />
 		<meta name="apple-mobile-web-app-status-bar-style" content="black-translucent" />
 
-		<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+		<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no, minimal-ui">
 
-		<link rel="stylesheet" href="css/reveal.min.css">
+		<link rel="stylesheet" href="css/reveal.css">
 		<link rel="stylesheet" href="css/theme/sky.css" id="theme">
 
-		<!-- For syntax highlighting -->
+		<!-- Code syntax highlighting -->
 		<link rel="stylesheet" href="lib/css/zenburn.css">
 
-		<!-- If the query includes 'print-pdf', use the PDF print sheet -->
+		<!-- Printing and PDF exports -->
 		<script>
-			document.write( '<link rel="stylesheet" href="css/print/' + ( window.location.search.match( /print-pdf/gi ) ? 'pdf' : 'paper' ) + '.css" type="text/css" media="print">' );
+			var link = document.createElement( 'link' );
+			link.rel = 'stylesheet';
+			link.type = 'text/css';
+			link.href = window.location.search.match( /print-pdf/gi ) ? 'css/print/pdf.css' : 'css/print/paper.css';
+			document.getElementsByTagName( 'head' )[0].appendChild( link );
 		</script>
 
 		<!--[if lt IE 9]>
@@ -40,7 +44,7 @@
                 
 <section data-markdown>
     <script type="text/template">
-        # HPC Users Group
+        ## HPC Users Group
         *Creating a community around research computing at ILRI*
 
         <img src="img/linux.png" style="height: 166px; border: none; background: none; box-shadow: none;">
@@ -148,7 +152,7 @@
     </section>
     <section data-markdown>
         <script type="text/template">
-            ## It's faster
+            ### It's faster
 
             <img src="img/nutshell.jpg" style="width: 500px; border: none; background: none; box-shadow: none;">
 
@@ -157,9 +161,9 @@
     </section>
     <section data-markdown>
         <script type="text/template">
-            ## Roughly ten times faster
+            ### Roughly ten times faster
 
-            <img src="img/bw-graph.gif" style="width: 600px; border: none; background: none; box-shadow: none;">
+            <img src="img/bw-graph.gif" style="width: 500px; border: none; background: none; box-shadow: none;">
 
             Bandwidth graph during blastn against WGS (peak throughput 720MB/sec)
         </script>
@@ -189,27 +193,26 @@
     </section>
     <section data-markdown>
         <script type="text/template">
-            ## Programs which are generally CPU bound
+            ### Programs which are generally CPU bound
 
-            <img src="img/thinker.jpg" style="width: 320px; border: none; background: none; box-shadow: none;">
+            <img src="img/thinker.jpg" style="width: 300px; border: none; background: none; box-shadow: none;">
 
             R, structure, ???
         </script>
     </section>
     <section data-markdown>
         <script type="text/template">
-            ## Things you can do to speed up a CPU-bound program
+            ### Things you can do to speed up a CPU-bound program
 
             <img src="img/rocket-turtle.jpg" style="width: 800px; border: none; background: none; box-shadow: none;">
 
-            Get a faster CPU (ie, 2.4GHz -> 2.8GHz)
-
-            Spread the problem over multiple CPUs ("multi-threaded" code)
+            - Get a faster CPU (ie, 2.4GHz -> 2.8GHz)
+            - Spread the problem over multiple CPUs ("multi-threaded" code)
         </script>
     </section>
     <section data-markdown>
         <script type="text/template">
-            ## Multi-threaded code
+            ### Multi-threaded code
 
             Many programs allow you to specify cores, threads, or CPUs. For example:
 
@@ -226,7 +229,6 @@
             Trinity.pl [..] --output blah.out --CPU 4 --inchworm_cpu 4 --bflyCPU 4
             ```
 
-            <br/>
             Make sure to match your program's thread/core/cpu parameter with the SLURM job parameters!
         </script>
     </section>
@@ -243,7 +245,7 @@
     </section>
     <section data-markdown>
         <script type="text/template">
-            ## Programs which are generally I/O bound
+            ### Programs which are generally I/O bound
 
             <br/>
             BLAST, Trinity, Bowtie, ???
@@ -251,15 +253,13 @@
     </section>
     <section data-markdown>
         <script type="text/template">
-            ## Things you can do to speed up an I/O-bound program
+            ### Things you can do to speed up an I/O-bound program
 
             <img src="img/rocket-turtle.jpg" style="width: 800px; border: none; background: none; box-shadow: none;">
 
-            Get faster disks
-
-            Get a faster network (yay!)
-
-            Compress your input/output
+            - Get faster disks
+            - Get a faster network (yay!)
+            - Compress your input/output
         </script>
     </section>
 </section>
@@ -274,20 +274,18 @@
     </section>
     <section data-markdown>
         <script type="text/template">
-            ## Using local storage in batch jobs
-
+            ### Using local storage in batch jobs
             taurus and mammoth have a local "scratch" space we can use:
 
-            <br/>
             */var/scratch*
 
-            <br/>
+            <br />
             Scratch space is a local, temporary place to put your data where you don't incur penalties for going over the network
         </script>
     </section>
     <section data-markdown>
         <script type="text/template">
-            ## Example batch script
+            ### Example batch script
 
             ```
 #!/bin/env bash
@@ -308,14 +306,12 @@ echo
 blastn -query ~/data/sequences/drosoph_14_sequences.seq -db nt -num_threads 4 -out $WORKDIR/output
             ```
 
-            <br/>
             Creates a unique temp directory for you during runtime, ie:
 
             ```
             /var/scratch/10287
             ```
 
-            <br/>
             Make sure to clean up when you're done!
         </script>
     </section>
@@ -357,11 +353,11 @@ blastn -query ~/data/sequences/drosoph_14_sequences.seq -db nt -num_threads 4 -o
 		</div>
 
 		<script src="lib/js/head.min.js"></script>
-		<script src="js/reveal.min.js"></script>
+		<script src="js/reveal.js"></script>
 
 		<script>
 
-			// Full list of configuration options available here:
+			// Full list of configuration options available at:
 			// https://github.com/hakimel/reveal.js#configuration
 			Reveal.initialize({
 				controls: true,
@@ -369,20 +365,16 @@ blastn -query ~/data/sequences/drosoph_14_sequences.seq -db nt -num_threads 4 -o
 				history: true,
 				center: true,
 
-				theme: Reveal.getQueryHash().theme, // available themes are in /css/theme
-				transition: Reveal.getQueryHash().transition || 'zoom', // default/cube/page/concave/zoom/linear/fade/none
-				backgroundTransition: 'slide',
+				transition: 'slide', // none/fade/slide/convex/concave/zoom
 
-				// Optional libraries used to extend on reveal.js
+				// Optional reveal.js plugins
 				dependencies: [
 					{ src: 'lib/js/classList.js', condition: function() { return !document.body.classList; } },
 					{ src: 'plugin/markdown/marked.js', condition: function() { return !!document.querySelector( '[data-markdown]' ); } },
 					{ src: 'plugin/markdown/markdown.js', condition: function() { return !!document.querySelector( '[data-markdown]' ); } },
-					{ src: 'plugin/highlight/highlight.js', async: true, callback: function() { hljs.initHighlightingOnLoad(); } },
-					{ src: 'plugin/zoom-js/zoom.js', async: true, condition: function() { return !!document.body.classList; } },
-					{ src: 'plugin/notes/notes.js', async: true, condition: function() { return !!document.body.classList; } }
-					// { src: 'plugin/search/search.js', async: true, condition: function() { return !!document.body.classList; } }
-					// { src: 'plugin/remotes/remotes.js', async: true, condition: function() { return !!document.body.classList; } }
+					{ src: 'plugin/highlight/highlight.js', async: true, condition: function() { return !!document.querySelector( 'pre code' ); }, callback: function() { hljs.initHighlightingOnLoad(); } },
+					{ src: 'plugin/zoom-js/zoom.js', async: true },
+					{ src: 'plugin/notes/notes.js', async: true }
 				]
 			});
 
